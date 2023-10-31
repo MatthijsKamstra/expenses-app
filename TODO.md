@@ -1,14 +1,26 @@
 # TODO
 
-## General
+🐞
 
-- [ ] use backend
-- [ ] use local database
-- [ ] setup github pages
-- [ ] build local/build production
+## Add content to index.html
 
-## View
+- [ ] change title in `src/index.html`
+- [ ] change svg icon in `src/index.html`
+- [ ] fix icons in `src/app/components/nav/nav.component.html`
+- [ ] uncomment products `src/app/components/nav/nav.component.html`
 
-- [ ] login page
-- [ ] dashboard
-- [ ]
+## Update data
+
+- [ ] update `src/services/data.service.ts`
+- [ ] update `src/nav.route.ts`
+
+## Misc
+
+- [ ] Delete this file `/setup_angular_v01.sh` use in terminal `rm setup_angular_v01.sh`
+
+## Start developement
+
+- [ ] `ng serve --open`
+
+
+
