@@ -5,23 +5,28 @@
 - https://gist.github.com/rveitch/84cea9650092119527bc
 **/
 
+// // Bootstrap SASS with custom default color
+// $primary: #821e7d;
+// @import "../node_modules/bootstrap/scss/bootstrap.scss";
+
 // abstracts
 @import "./styles/abstracts/variables";
 @import "./styles/abstracts/vars_colors";
-// @import "./styles/abstracts/debug";
-// @import "./styles/abstracts/mixins";
-// @import "./styles/abstracts/functions";
-// @import "./styles/abstracts/media-queries";
+@import "./styles/abstracts/debug";
+@import "./styles/abstracts/mixins";
+@import "./styles/abstracts/functions";
+@import "./styles/abstracts/media-queries";
 
 /*! #{$project-name} v#{$version} */
 
 // vendors
 
 // base
-@import "./styles/base/colors";
+// @import "./styles/base/colors";
 @import "./styles/base/base";
-// @import "./styles/base/root";
-// @import "./styles/base/spacing";
+@import "./styles/base/angular";
+@import "./styles/base/root";
+@import "./styles/base/swatch";
 // @import "./styles/base/typography";
 
 // layout
@@ -36,5 +41,3 @@
 
 // utils
 // @import "./styles/base/typowrapper";
-
-

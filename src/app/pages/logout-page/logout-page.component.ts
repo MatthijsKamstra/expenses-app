@@ -25,8 +25,10 @@ export class LogoutPageComponent implements OnInit {
 	}
 
 	private logoutAndNavigateToLoginPage() {
-		this.securityService.logout().subscribe(
-			response => this.router.navigate([Redirects.REDIRECT_LOGIN])
-		);
+		console.warn('logoutAndNavigateToLoginPage');
+
+		// this.securityService.logout().subscribe(
+		// 	response => this.router.navigate([Redirects.REDIRECT_LOGIN])
+		// );
 	}
 }

@@ -42,8 +42,8 @@ import { AuthorisedLayoutComponent } from './layout/authorised/authorised-layout
 import { GuestLayoutComponent } from './layout/guest/guest-layout/guest-layout.component';
 import { PageContentComponent } from './layout/page-content/page-content.component';
 import { LogoutPageComponent } from './pages/logout-page/logout-page.component';
-import { DebugDirective } from "./shared/directives/debug.directive";
 import { SettingsPageComponent } from './pages/settings-page/settings-page.component';
+import { DebugDirective } from "./shared/directives/debug.directive";
 
 @NgModule({
 	declarations: [
@@ -77,27 +77,22 @@ import { SettingsPageComponent } from './pages/settings-page/settings-page.compo
 		ProductsInfoPageComponent,
 		ProductsPageComponent,
 		ProfileDropdownComponent,
+		SettingsPageComponent,
 		StyleguideComponent,
 		ThrobberComponent,
 		ToastsComponent,
 		TooltipsComponent,
 		UsersPageComponent,
-  SettingsPageComponent,
 	],
 	imports: [
 		BrowserModule,
 		HttpClientModule,
-		FormsModule,
-
-		HttpClientModule,
-		FormsModule,
 
 		AppRoutingModule,
 		ReactiveFormsModule,
 		FormsModule,
 
 		LeafletModule,
-
 	],
 	providers: [],
 	bootstrap: [AppComponent]

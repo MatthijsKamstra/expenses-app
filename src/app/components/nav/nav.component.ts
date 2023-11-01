@@ -3,9 +3,9 @@ import { Routes } from "@angular/router";
 import { SecurityService } from 'src/app/services/security.service';
 import { environment } from 'src/environments/environment';
 // routes
-import { defaultRoutes } from "../../routes/default.route";
 import { pagesRoutes } from "../../routes/pages.route";
-import { productRoutes } from "../../routes/product.route";
+import { publicRoutes } from "../../routes/public.route";
+
 import { testRoutes } from "../../routes/test.route";
 
 @Component({
@@ -17,8 +17,7 @@ export class NavComponent {
 
 	isHiddenIsProduction: boolean = true;
 
-	productRoutes: Routes = productRoutes;
-	defaultRoutes: Routes = defaultRoutes;
+	publicRoutes: Routes = publicRoutes;
 	testRoutes: Routes = testRoutes;
 	pagesRoutes: Routes = pagesRoutes;
 
