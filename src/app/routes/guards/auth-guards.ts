@@ -18,17 +18,17 @@ export const authGuard: () => boolean | UrlTree = () => {
 	}
 }
 
-// for redirecting to home if already logged in
-export const loginGuard: () => boolean | UrlTree = () => {
-	const router = inject(Router);
-	const securityService = inject(SecurityService);
+// // for redirecting to home if already logged in
+// export const loginGuard: () => boolean | UrlTree = () => {
+// 	const router = inject(Router);
+// 	const securityService = inject(SecurityService);
 
-	const authenticated = securityService.isAuthenticated();
-	if (authenticated) {
-		// logged in so return false and redirect to home
-		return router.createUrlTree([Redirects.REDIRECT_AFTER_LOGIN]);
-	} else {
-		// not logged in so return true and continue to login
-		return true;
-	}
-}
+// 	const authenticated = securityService.isAuthenticated();
+// 	if (authenticated) {
+// 		// logged in so return false and redirect to home
+// 		return router.createUrlTree([Redirects.REDIRECT_AFTER_LOGIN]);
+// 	} else {
+// 		// not logged in so return true and continue to login
+// 		return true;
+// 	}
+// }

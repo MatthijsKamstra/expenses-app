@@ -44,7 +44,7 @@ export class IconsComponent implements OnInit {
 
 	setIcon(): void {
 		// use as default
-		if (this.icon == null) this.icon = '?';
+		if (this.icon == null || this.icon == '') this.icon = '?';
 
 		// when using `fa-xxx` we assume you know what you are talking about
 		if (this.icon.indexOf('fa-') != -1) return;
@@ -78,6 +78,15 @@ export class IconsComponent implements OnInit {
 
 			case 'user':
 			case 'profile': this.icon = 'fa-user-circle'; break;
+
+			case 'login':
+			case 'page login': this.icon = 'fa-lock'; break;
+			case 'logout':
+			case 'page logout': this.icon = 'fa-unlock'; break;
+
+			case 'setting':
+			case 'settings':
+			case 'page settings': this.icon = 'fa-cog'; break;
 
 			default:
 				console.log(`case '${this.icon.toLowerCase()}': this.icon = '${this.icon.toLowerCase()}'; break;`);

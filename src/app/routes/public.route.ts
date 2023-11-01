@@ -6,7 +6,7 @@ import { LogoutPageComponent } from "../pages/logout-page/logout-page.component"
 
 export const publicRoutes: Routes = [
 	{ path: "", pathMatch: "full", component: HomePageComponent },
-	// { path: "home", title: "Home", component: HomePageComponent },
+	{ path: "home", title: "Home", component: HomePageComponent },
 	{ path: "about", title: "About", component: AboutPageComponent },
 
 	// { path: '', redirectTo: 'login', pathMatch: 'full', data: { title: 'Public Views' } },

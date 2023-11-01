@@ -5,7 +5,7 @@ import { NotFoundPageComponent } from "./pages/not-found-page/not-found-page.com
 
 import { AuthorisedLayoutComponent } from "./layout/authorised/authorised-layout/authorised-layout.component";
 import { GuestLayoutComponent } from "./layout/guest/guest-layout/guest-layout.component";
-import { authGuard, loginGuard } from "./routes/guards/auth-guards";
+import { authGuard } from "./routes/guards/auth-guards";
 
 import { pagesRoutes } from "./routes/pages.route";
 import { publicRoutes } from "./routes/public.route";
@@ -22,7 +22,7 @@ const routes: Routes = [
 		path: '',
 		component: GuestLayoutComponent,
 		canActivate: [
-			loginGuard
+			// loginGuard
 		],
 		children: PUBLIC_ROUTES
 	},

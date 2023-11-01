@@ -76,6 +76,8 @@ export class SecurityService {
 	 * @returns
 	 */
 	isAuthenticated(): boolean {
+		console.log('isAuthenticated');
+		console.log(this.securityCookieService.getUser());
 		return !!this.securityCookieService.getUser();
 	}
 
