@@ -1,1 +1,118 @@
 $black: #000000;
+$white: #ffffff;
+
+$gray-light: #fafafa;
+$gray-medium: #f5f5f5;
+$gray: #999999;
+$gray-dark: #333333;
+
+// --------------------------------------------------
+// Project overall color-swatches:
+// --------------------------------------------------
+
+$swatchBlue: #008cbe;
+$swatchBlueD: #00749e;
+$swatchBlueDark: #322882;
+$swatchPurple: #821e7d;
+$swatchOrange: #e56c00;
+$swatchGreen: #7db43c;
+$swatchGreenDarken: darken(#7db43c, 10%);
+$swatchGreenDark: #385920;
+$swatchGreyDark: #525151;
+$swatchGreyMediumDark: #929292;
+$swatchGrey: #d7d7d7;
+$swatchGreyLight: #eee;
+$swatchGreyMediumLight: #f7f7f7;
+$swatchGreyLighter: #fbfbfb;
+$swatchBeige: #f9f6f6;
+
+// --------------------------------------------------
+// Project-specific
+// --------------------------------------------------
+
+$colorPrimary: $swatchPurple;
+$colorSecondary: $swatchBlue;
+
+$colorAttention: $swatchOrange;
+$colorAttentionAlt: $swatchGreen;
+
+$colorBackgroundAlt: $swatchBeige;
+
+$colorWhite: #fff;
+$colorBlack: $swatchGreyDark;
+$colorGreyDark: $swatchGreyDark;
+$colorGrey: $swatchGrey;
+$colorGreyLight: $swatchGreyLight;
+$colorGreyLighter: $swatchGreyLighter;
+
+$border-color: $colorGrey;
+
+// Brand colors
+// $brand-primary: #00a591;
+// $brand-secondary: #ffa200;
+
+// //Primary colors
+// $primary: #00a591 !important;
+// $secondary: #3f4f58 !important;
+// $tertiary: #f1f2f5;
+// $gray-01: #fcfcfd;
+// $gray-03: #dbdee5;
+// $gray-04: #b5baca;
+
+$success: #57b76c;
+// $danger: #d22028 !important;
+// $warning: #ffab00 !important;
+// $info: #0269c8 !important;
+
+// $gray-900: #101720;
+// $gray-600: #606873;
+// $gray-400: #a8b0bd;
+// $gray-300: #ccd4e2;
+
+// $accent-001: #66a500;
+// $accent-002: #00a556;
+// $accent-003: #00a59b;
+// $accent-004: #0087a5;
+// $accent-005: #0042a5;
+// $accent-006: #8e00a5;
+
+// $notification-red: #ff6767;
+
+// //transparent
+// $red-transparent: rgba(210, 32, 40, 0.15);
+// $yellow-transparent: rgba(255, 171, 0, 0.15);
+// $blue-transparent: rgba(2, 105, 200, 0.15);
+// $green-transparent: rgba(87, 183, 108, 0.15);
+
+// $blue-light: #dee6f3;
+// $background: #f2f6f9;
+
+// debug
+$debug: #ffb5f5;
+
+// // Primary colors
+// $purple: #c3c3f5;
+// $blue: #c3d9f5;
+// $red: #efbebb;
+$orange: #f5d6ab;
+// $orangered: #fcc8b6;
+// $yellow: #fff689;
+
+// // shades (white -> black)
+// $offwhite: #f7f7f7;
+// $gray: #cfcfcf;
+// $offblack: #444444;
+
+// $black: #000000;
+// $blue-dark: #002269;
+// $green: #c5bf10;
+// $green-light: #f3f2cf;
+// $grey-dark: #a6a6a3;
+// $grey-mid: #d9d9d6;
+// $grey-light: #f5f5f1;
+// $white: #ffffff;
+// $red-error: #c51010;
+// $red-light: #fcf3f3;
+
+// debug
+$pink: #ffb5f5;

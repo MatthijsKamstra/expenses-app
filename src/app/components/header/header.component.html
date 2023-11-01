@@ -1,0 +1,30 @@
+<header class="container">
+
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb mb-0 text-muted">
+			<li class="breadcrumb-item">
+				<a routerLink="/{{icon}}" class="text-muted">
+					<app-icons icon="{{icon}}" title="{{title}}"></app-icons>
+				</a>
+			</li>
+
+			<ng-container *ngIf="!isTopLevel">
+				<li *ngFor="let url of urlArr; let i = index" class="breadcrumb-item">
+					<a routerLink="/{{urlMap.get(url)?.toLowerCase()}}" class="text-muted"
+						[ngClass]="{'is-id-element' : isId(url), 'is-last-element' : isLast(url)}">
+						{{url }}
+					</a>
+				</li>
+			</ng-container>
+		</ol>
+	</nav>
+
+	<button class="btn btn-light pull-right" *ngIf="!isTopLevel" (click)="onBack()"
+		title="Click your heels together three times and say 'There's no place like home' and you'll be there.">
+		<app-icons icon="back"></app-icons>
+		{{'Back' }}
+	</button>
+
+	<h1>{{title}}</h1>
+
+</header>

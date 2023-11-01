@@ -1,0 +1,41 @@
+// Angular Modules
+import { Injectable } from '@angular/core';
+
+@Injectable({
+	providedIn: 'root'
+})
+export class Constants {
+	static LOCAL_STORAGE_LANGUAGE(LOCAL_STORAGE_LANGUAGE: any): any {
+		throw new Error('Method not implemented.');
+	}
+	static LOCAL_STORAGE_GROUP_DEVICE_ID(LOCAL_STORAGE_GROUP_DEVICE_ID: any): any {
+		throw new Error('Method not implemented.');
+	}
+	static LOCAL_STORAGE_GROUP_DEVICE_ID_REMOVE(LOCAL_STORAGE_GROUP_DEVICE_ID_REMOVE: any): any {
+		throw new Error('Method not implemented.');
+	}
+	static LOCAL_STORAGE_DEVICES_DATA_FILTER(LOCAL_STORAGE_DEVICES_DATA_FILTER: any): any {
+		throw new Error('Method not implemented.');
+	}
+	static LOCAL_STORAGE_DEVICES_COLUMN_FILTER(LOCAL_STORAGE_DEVICES_COLUMN_FILTER: any): any {
+		throw new Error('Method not implemented.');
+	}
+
+	// path
+	public static loginURL: string = '/user/login';
+	public static logoutURL: string = '/user/logout';
+
+	public static locationURL: string = '/user/location';
+	public static locationsURL: string = '/user/locations';
+
+	// Headers
+	public static AUTH_HEADER: string = 'X-Auth-Token';
+
+	// Sessions storage
+	public static SESSION_STORAGE_USER: string = 'user_v02';
+	public static SESSION_STORAGE_TOKEN: string = 'token_v02';
+
+	// local storage
+	static LOCAL_STORAGE_EXPAND_TABLE: string = 'expand_table';
+
+}

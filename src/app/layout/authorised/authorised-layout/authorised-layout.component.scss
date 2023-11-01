@@ -1,0 +1,21 @@
+// app-authorised-layout {
+// 	border: 10px solid pink;
+// }
+
+// * {
+// 	border: 10px solid lightblue;
+// }
+
+// * {
+// 	display: flex;
+// }
+
+// body > app-root > app-authorised-layout
+main {
+	flex-shrink: 0;
+	padding-top: 60px;
+}
+app-footer {
+	// border: 10px solid gold;
+	margin-top: auto !important;
+}

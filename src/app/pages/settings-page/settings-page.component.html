@@ -1,0 +1,85 @@
+<app-header title="{{this.title}}"></app-header>
+
+<section class="container" *ngIf="configSettings">
+
+	<div debug>
+		<ul class="m-0">
+			<li>isReadOnlyUser: </li>
+			<li>isNetManagementAdmin: </li>
+		</ul>
+	</div>
+
+
+	<div class="row">
+		<div class="col-lg-1 col-md-2">
+			{{'Production'}}:&nbsp;
+		</div>
+		<div class="col-lg-11 col-md-10">
+			<code id="version" class="version-label">{{useEnvironment.production}}</code>
+		</div>
+	</div>
+
+	<ul>
+		<li>isProduction: <code>{{isProduction}}</code></li>
+		<li>isApiEnabled: <code>{{isApiEnabled}}</code></li>
+		<li>text: <code>{{text}} </code></li>
+		<li>apiUrl: <code>{{apiUrl}} </code></li>
+
+	</ul>
+
+	<h3>local storage</h3>
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">Constants</th>
+				<th scope="col">Constants value</th>
+				<th scope="col">Value</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Constants.LOCAL_STORAGE_EXPAND_TABLE</td>
+				<td><code>{{this.localStorageExpandTable}}</code></td>
+				<td>{{this.valueLocalStorageExpandTable}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h3>session storage</h3>
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">Constants</th>
+				<th scope="col">Constants value</th>
+				<th scope="col">Value</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Constants.SESSION_STORAGE_USER</td>
+				<td><code>{{this.sessionStorageUser}}</code></td>
+				<td>{{this.valueSessionStorageUser}}</td>
+			</tr>
+			<tr>
+				<td>Constants.SESSION_STORAGE_TOKEN</td>
+				<td><code>{{this.sessionStorageToken}}</code></td>
+				<td>{{this.valueSessionStorageToken}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h3>local storage</h3>
+	<ul>
+		<li>Constants.LOCAL_STORAGE_EXPAND_TABLE: <code>{{this.localStorageExpandTable}}</code></li>
+	</ul>
+	<h3>session storage</h3>
+	<ul>
+		<li>Constants.SESSION_STORAGE_USER: <code>{{this.sessionStorageUser}}</code></li>
+		<li>Constants.SESSION_STORAGE_TOKEN: <code>{{this.sessionStorageToken}}</code></li>
+	</ul>
+
+
+</section>
+
+<!-- loading throbber and feedback -->
+<app-throbber *ngIf="!configSettings"></app-throbber>

@@ -1,0 +1,31 @@
+<section class="container-map" data-testid="app-map-container" *ngIf="this.isFeatureMap">
+
+	<div [style]="this.getHeightComponent()" [title]="this.height" leaflet [leafletOptions]="this.options"
+		[leafletLayers]="this.layers" data-testid="app-map">
+	</div>
+
+	<div class="btn-group-vertical  map-button-group" role="group" aria-label="Map buttons"
+		data-testid="app-map-buttons">
+
+		<button class="btn btn-sm btn-outline-dark map-open-btn" (click)="onViewPortOpen()" *ngIf="isHidden"
+			data-testid="app-map-btn-map-open">
+			<app-icons icon="map"></app-icons></button>
+
+		<button class="btn btn-sm btn-outline-dark" (click)="onViewPortClose()" *ngIf="!isHidden"
+			data-testid="app-map-btn-map-close">
+			<app-icons icon="nomap"></app-icons></button>
+
+		<button class="btn btn-sm btn-outline-dark" (click)="onViewPortBigger()" *ngIf="!isHidden"
+			[disabled]="height == MAX_HEIGHT" data-testid="app-map-btn-bigger">
+			<app-icons icon="bigger"></app-icons></button>
+		<button class="btn btn-sm btn-outline-dark" (click)="onViewPortSmaller()" *ngIf="!isHidden"
+			data-testid="app-map-btn-smaller">
+			<app-icons icon="smaller"></app-icons></button>
+
+	</div>
+</section>
+
+
+<section debug class="container">
+	<p class="mb-0" *ngIf="!this.isFeatureMap">The map feature is not active yet!</p>
+</section>
