@@ -17,11 +17,6 @@ export class SettingsPageComponent {
 	configSettings: boolean = true;
 
 	useEnvironment: IEnvironment = environment;
-	isProduction: boolean = environment.production;
-	isApiEnabled: boolean = environment.apiEnabled;
-	text: string = environment.text;
-	apiUrl: string = environment.apiUrl;
-
 	constants!: IConstants;
 
 	localStorageExpandTable: any;
