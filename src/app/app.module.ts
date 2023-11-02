@@ -33,6 +33,7 @@ import { TooltipsComponent } from './components/bootstrap/tooltips/tooltips.comp
 import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
+import { MapComponent } from './components/map/map.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { IsLocalComponent } from './elements/is-local/is-local.component';
 import { ProfileDropdownComponent } from './elements/profile-dropdown/profile-dropdown.component';
@@ -69,6 +70,7 @@ import { DebugDirective } from "./shared/directives/debug.directive";
 		LoginComponent,
 		LoginPageComponent,
 		LogoutPageComponent,
+		MapComponent,
 		ModalComponent,
 		NavComponent,
 		NotFoundPageComponent,

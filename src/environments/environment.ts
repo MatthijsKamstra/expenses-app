@@ -5,6 +5,7 @@ export const environment: IEnvironment = {
 	apiEnabled: false,
 	feature: {
 		dashboard: false,
+		map: false,
 	},
 	text: 'This is production environment',
 	apiUrl: 'https://www.matthijskamstra.nl/expenses/',

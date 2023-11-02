@@ -8,4 +8,5 @@ export interface IEnvironment {
 
 export interface IFeature {
 	dashboard: boolean,
+	map: boolean,
 }

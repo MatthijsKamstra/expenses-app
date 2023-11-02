@@ -5,6 +5,7 @@ export const environment: IEnvironment = {
 	apiEnabled: false,
 	feature: {
 		dashboard: false,
+		map: true,
 	},
 	text: 'This is development environment',
 	apiUrl: 'http://localhost:2000',

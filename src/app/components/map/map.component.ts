@@ -2,7 +2,6 @@ import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { Layer, MapOptions, latLng, tileLayer } from 'leaflet';
 import { environment } from 'src/environments/environment';
 
-
 @Component({
 	selector: 'app-map',
 	templateUrl: './map.component.html',
@@ -22,7 +21,6 @@ export class MapComponent implements OnInit {
 		zoom: 8,
 		center: latLng(52.297, 5.251)
 	};
-
 
 	DEFAULT_OFFSET: number = 100;
 	MAX_HEIGHT: number = 300; //600;

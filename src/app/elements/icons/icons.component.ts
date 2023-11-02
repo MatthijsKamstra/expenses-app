@@ -88,6 +88,12 @@ export class IconsComponent implements OnInit {
 			case 'settings':
 			case 'page settings': this.icon = 'fa-cog'; break;
 
+			case 'map': this.icon = 'fa-map'; break;
+			case 'page map': this.icon = 'fa-map'; break;
+			case 'nomap': this.icon = 'fa-map-o'; break;
+			case 'bigger': this.icon = 'fa-plus-circle'; break;
+			case 'smaller': this.icon = 'fa-minus-circle'; break
+
 			default:
 				console.log(`case '${this.icon.toLowerCase()}': this.icon = '${this.icon.toLowerCase()}'; break;`);
 				this.icon = 'fa-remove';

@@ -25,7 +25,7 @@ export class SecurityCookieService {
 		this.currentUser = null;
 		this.sessionService.removeItem(Constants.SESSION_STORAGE_USER);
 		this.sessionService.removeItem(Constants.SESSION_STORAGE_TOKEN);
-		console.log('removed');
+		// console.log('removed');
 
 	};
 

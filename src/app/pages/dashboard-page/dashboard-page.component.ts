@@ -1,10 +1,120 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Icon, Layer, MapOptions, Marker, icon, latLng, marker, tileLayer } from 'leaflet';
+import { IGeo } from 'src/app/shared/interfaces/i-geo';
+import { LatLngUtils } from 'src/app/shared/utils/lat-lng-utils';
 
 @Component({
-  selector: 'app-dashboard-page',
-  templateUrl: './dashboard-page.component.html',
-  styleUrls: ['./dashboard-page.component.scss']
+	selector: 'app-dashboard-page',
+	templateUrl: './dashboard-page.component.html',
+	styleUrls: ['./dashboard-page.component.scss']
 })
-export class DashboardPageComponent {
+export class DashboardPageComponent implements OnInit {
 
+
+	options: MapOptions = {
+		layers: [
+			tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '&copy; <a href="https://www.alliander">Alliander</a>' })
+		],
+		zoom: 8,
+		center: latLng(52.297, 5.251)
+	};
+	layers: Layer[] = [];
+
+	mapLink: string = '';
+	mapFeedback: string = '';
+	isSubmitDisabled: boolean = true;
+
+	constructor() { }
+
+
+	ngOnInit(): void {
+		this.addMarkers();
+	}
+
+
+	submitGeo(latitude: any, longitude: any) {
+		console.log(latitude);
+		console.log(longitude);
+	}
+
+	openLink() {
+		// 	mapLink.href = 'https://www.openstreetmap.org/#map=18/${latitude}/${longitude}';
+		// 	mapLink.textContent = 'Latitude: ${latitude} °, Longitude: ${longitude} °';
+		return 'https://www.ah.nl';
+
+	}
+
+	geoFindMe() {
+		console.log('geoFindMe()');
+		if (navigator.geolocation == null) {
+			this.mapFeedback = "Geolocation is not supported by your browser";
+		} else {
+			this.mapFeedback = "Locating...";
+			navigator.geolocation.getCurrentPosition((position: GeolocationPosition) => {
+				console.log('success');
+				var latitude = position.coords.latitude;
+				var longitude = position.coords.longitude;
+				this.mapFeedback = "";
+				this.isSubmitDisabled = false;
+				this.mapLink = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
+				// 	mapLink.href = 'https://www.openstreetmap.org/#map=18/${latitude}/${longitude}';
+				// 	mapLink.textContent = 'Latitude: ${latitude} °, Longitude: ${longitude} °';
+
+				var geo: IGeo = {
+					lat: latitude,
+					lng: longitude
+				}
+				var marker: Marker = this.createMarker(geo);
+				this.layers = [];
+				this.layers.push(marker);
+
+
+			}, (e: GeolocationPositionError) => {
+				console.log('error');
+				this.mapFeedback = "Unable to retrieve your location";
+			});
+		}
+	}
+
+	submit() {
+		throw new Error('Method not implemented.');
+	}
+
+
+	addMarkers() {
+		this.layers = [];
+		for (let i = 0; i < 10; i++) {
+			// voorlopig even in de zee gooien
+			// { "lat": 52.442929071469806, "lng": 4.256211746387448 }
+			let geo: IGeo = LatLngUtils.getRandomLatLng();
+
+			let mark = marker([geo.lat, geo.lng], {
+				icon: icon({
+					...Icon.Default.prototype.options,
+					iconUrl: 'assets/marker-icon.png',
+					iconRetinaUrl: 'assets/marker-icon-2x.png',
+					shadowUrl: 'assets/marker-shadow.png'
+				})
+			});
+			// mark.bindPopup(`${iDevice.container.street} ${iDevice.container.number}<br/>${iDevice.container.city}`);
+			mark.bindPopup(`hi<br/>foo`);
+			mark.openPopup();
+			this.layers.push(mark);
+		}
+	}
+
+	createMarker(geo: IGeo): Marker {
+		let mark = marker([geo.lat, geo.lng], {
+			icon: icon({
+				...Icon.Default.prototype.options,
+				iconUrl: 'assets/marker-icon.png',
+				iconRetinaUrl: 'assets/marker-icon-2x.png',
+				shadowUrl: 'assets/marker-shadow.png'
+			})
+		});
+		// mark.bindPopup(`${iDevice.container.street} ${iDevice.container.number}<br/>${iDevice.container.city}`);
+		mark.bindPopup(`hi<br/>foo`);
+		mark.openPopup();
+		return mark;
+	}
 }
