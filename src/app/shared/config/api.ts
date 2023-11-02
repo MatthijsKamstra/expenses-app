@@ -30,11 +30,11 @@ export class Api {
 			return {
 				env: `TEST`,
 
-				loginApi: `/assets/dummy/json/login.json`,
-				logoutApi: `/assets/dummy/json/logout.json`,
+				loginApi: `assets/dummy/json/login.json`,
+				logoutApi: `assets/dummy/json/logout.json`,
 
-				locationApi: `/assets/dummy/json/location.json`,
-				locationsApi: `/assets/dummy/json/locations.json`,
+				locationApi: `assets/dummy/json/location.json`,
+				locationsApi: `assets/dummy/json/locations.json`,
 			}
 		}
 	}
