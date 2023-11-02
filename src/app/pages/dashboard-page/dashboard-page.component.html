@@ -1,20 +1,18 @@
+<app-header title="{{this.title}}"></app-header>
+
+
 <section class="container">
-	<h2>dashboard</h2>
 
-	<app-map [layers]="layers"></app-map>
-
-
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed ex orci. Phasellus magna ante, ullamcorper non
-		leo in, fermentum efficitur felis. Donec vitae mattis erat. Sed vel odio arcu. Praesent porta nulla et sapien
-		interdum, id placerat leo semper. Mauris eget consequat sem. Suspendisse tincidunt et est sit amet laoreet.
-		Vivamus nec rutrum enim. In malesuada nibh non tempor imperdiet. In dignissim, felis in tincidunt consequat,
-		metus augue euismod diam, ut eleifend turpis nisi vitae ipsum. Nulla mattis, magna at convallis mattis, sem
-		justo viverra ligula, maximus dignissim dolor nunc id arcu. Nullam auctor, ligula ac cursus lobortis, sapien
-		mauris lacinia felis, in ultrices mi dolor quis arcu. Vivamus iaculis tincidunt lobortis. In hac habitasse
-		platea dictumst.</p>
+	<div class="mb-2">
+		<app-map [layers]="layers"></app-map>
+	</div>
 
 
-	<button class="btn btn-warning" id="find-me" (click)="this.geoFindMe()">Show my location</button>
+
+	<button class="btn btn-warning" id="find-me" (click)="this.geoFindMe()">
+		<app-icons [icon]="this.getIcon()"></app-icons>
+		Show my location
+	</button>
 
 	<div id="wrapper">
 

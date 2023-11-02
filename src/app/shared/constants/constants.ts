@@ -21,5 +21,6 @@ export class Constants {
 
 	// local storage
 	static LOCAL_STORAGE_EXPAND_TABLE: string = 'expand_table_mck_v01';
+	static LOCATION_CURRENT: string = 'location_current_mck_v01';
 
 }

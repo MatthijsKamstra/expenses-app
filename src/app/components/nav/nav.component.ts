@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { pagesRoutes } from "../../routes/pages.route";
 import { publicRoutes } from "../../routes/public.route";
 
+import { secureRoutes } from 'src/app/routes/secure.route';
 import { testRoutes } from "../../routes/test.route";
 
 @Component({
@@ -18,6 +19,7 @@ export class NavComponent {
 	isHiddenIsProduction: boolean = true;
 
 	publicRoutes: Routes = publicRoutes;
+	secureRoutes: Routes = secureRoutes;
 	testRoutes: Routes = testRoutes;
 	pagesRoutes: Routes = pagesRoutes;
 

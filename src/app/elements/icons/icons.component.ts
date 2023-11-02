@@ -94,6 +94,9 @@ export class IconsComponent implements OnInit {
 			case 'bigger': this.icon = 'fa-plus-circle'; break;
 			case 'smaller': this.icon = 'fa-minus-circle'; break
 
+			case 'marker': this.icon = 'fa-map-marker'; break;
+			case 'loading': this.icon = 'fa fa-spinner fa-spin'; break;
+
 			default:
 				console.log(`case '${this.icon.toLowerCase()}': this.icon = '${this.icon.toLowerCase()}'; break;`);
 				this.icon = 'fa-remove';

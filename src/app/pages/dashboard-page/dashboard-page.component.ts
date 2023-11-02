@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Icon, Layer, MapOptions, Marker, icon, latLng, marker, tileLayer } from 'leaflet';
-import { IGeo } from 'src/app/shared/interfaces/i-geo';
+import { StorageLocalService } from 'src/app/services/storage-local.service';
+import { Constants } from 'src/app/shared/constants/constants';
+import { IGeo, IGeoPlus } from 'src/app/shared/interfaces/i-geo';
 import { LatLngUtils } from 'src/app/shared/utils/lat-lng-utils';
 
 @Component({
@@ -10,6 +12,8 @@ import { LatLngUtils } from 'src/app/shared/utils/lat-lng-utils';
 })
 export class DashboardPageComponent implements OnInit {
 
+
+	title: string = 'DashBoard';
 
 	options: MapOptions = {
 		layers: [
@@ -24,7 +28,9 @@ export class DashboardPageComponent implements OnInit {
 	mapFeedback: string = '';
 	isSubmitDisabled: boolean = true;
 
-	constructor() { }
+	constructor(
+		private storageLocalService: StorageLocalService,
+	) { }
 
 
 	ngOnInit(): void {
@@ -32,16 +38,15 @@ export class DashboardPageComponent implements OnInit {
 	}
 
 
-	submitGeo(latitude: any, longitude: any) {
-		console.log(latitude);
-		console.log(longitude);
-	}
-
 	openLink() {
 		// 	mapLink.href = 'https://www.openstreetmap.org/#map=18/${latitude}/${longitude}';
 		// 	mapLink.textContent = 'Latitude: ${latitude} °, Longitude: ${longitude} °';
 		return 'https://www.ah.nl';
 
+	}
+
+	getIcon(): string {
+		return 'marker';
 	}
 
 	geoFindMe() {
@@ -60,13 +65,16 @@ export class DashboardPageComponent implements OnInit {
 				// 	mapLink.href = 'https://www.openstreetmap.org/#map=18/${latitude}/${longitude}';
 				// 	mapLink.textContent = 'Latitude: ${latitude} °, Longitude: ${longitude} °';
 
-				var geo: IGeo = {
+				var geo: IGeoPlus = {
 					lat: latitude,
-					lng: longitude
+					lng: longitude,
+					zoom: 1
 				}
 				var marker: Marker = this.createMarker(geo);
 				this.layers = [];
 				this.layers.push(marker);
+
+				this.storageLocalService.setObject(Constants.LOCATION_CURRENT, geo);
 
 
 			}, (e: GeolocationPositionError) => {
