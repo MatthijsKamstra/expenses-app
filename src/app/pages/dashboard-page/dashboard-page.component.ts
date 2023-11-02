@@ -28,12 +28,17 @@ export class DashboardPageComponent implements OnInit {
 	mapFeedback: string = '';
 	isSubmitDisabled: boolean = true;
 
+	geo!: IGeoPlus | any;
+
 	constructor(
 		private storageLocalService: StorageLocalService,
 	) { }
 
 
 	ngOnInit(): void {
+		var json = this.storageLocalService.getObject(Constants.LOCATION_CURRENT);
+		if (json != null)
+			this.geo = json;
 		this.addMarkers();
 	}
 
