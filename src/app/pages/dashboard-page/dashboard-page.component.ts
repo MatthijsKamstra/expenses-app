@@ -37,9 +37,14 @@ export class DashboardPageComponent implements OnInit {
 
 	ngOnInit(): void {
 		var json = this.storageLocalService.getObject(Constants.LOCATION_CURRENT);
-		if (json != null)
+		if (json != null) {
 			this.geo = json;
-		this.addMarkers();
+			var marker: Marker = this.createMarker(JSON.parse(this.geo));
+			this.layers = [];
+			this.layers.push(marker);
+		} else {
+			this.addMarkers();
+		}
 	}
 
 
@@ -100,7 +105,6 @@ export class DashboardPageComponent implements OnInit {
 			// voorlopig even in de zee gooien
 			// { "lat": 52.442929071469806, "lng": 4.256211746387448 }
 			let geo: IGeo = LatLngUtils.getRandomLatLng();
-
 			let mark = marker([geo.lat, geo.lng], {
 				icon: icon({
 					...Icon.Default.prototype.options,
