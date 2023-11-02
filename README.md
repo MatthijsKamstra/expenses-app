@@ -28,3 +28,7 @@ ng serve --open
 
 - x
 - y
+
+```bash
+npm i ngx-cookie-service@15.0.0
+```

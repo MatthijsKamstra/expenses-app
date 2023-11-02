@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { NotificationService } from 'src/app/services/notification.service';
-import { SessionService } from 'src/app/services/session.service';
+import { StorageLocalService } from 'src/app/services/storage-local.service';
+import { StorageSessionService } from 'src/app/services/storage-session.service';
 import { Api, IConstants } from 'src/app/shared/config/api';
 import { Constants } from 'src/app/shared/constants/constants';
 import { IEnvironment } from 'src/app/shared/interfaces/i-environment';
@@ -27,9 +27,9 @@ export class SettingsPageComponent {
 	valueSessionStorageToken: any;
 
 	constructor(
-		private localStorageService: LocalStorageService,
+		private localStorageService: StorageLocalService,
 		private notificationService: NotificationService,
-		private sessionService: SessionService,
+		private sessionService: StorageSessionService,
 	) { }
 
 	ngOnInit(): void {

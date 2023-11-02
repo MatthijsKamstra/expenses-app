@@ -9,7 +9,7 @@ import { IEnvironment } from "../shared/interfaces/i-environment";
 import { IUser } from "../shared/interfaces/i-user";
 import { SecurityCookieService } from "./security-cookie.service";
 import { SecurityService } from "./security.service";
-import { SessionService } from "./session.service";
+import { StorageSessionService } from "./storage-session.service";
 
 describe('SecurityService (Generated)', () => {
 
@@ -34,7 +34,7 @@ describe('SecurityService (Generated)', () => {
 			providers: [
 				SecurityService,
 				SecurityCookieService,
-				SessionService,
+				StorageSessionService,
 				Router,
 				{
 					provide: SecurityCookieService,

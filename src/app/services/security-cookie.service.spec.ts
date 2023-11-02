@@ -3,15 +3,15 @@ import { TestBed } from "@angular/core/testing";
 import { Constants } from "../shared/constants/constants";
 import { IUser } from "../shared/interfaces/i-user";
 import { SecurityCookieService } from "./security-cookie.service";
-import { SessionService } from "./session.service";
+import { StorageSessionService } from "./storage-session.service";
 
 
 describe('SecurityCookieService (Generated)', () => {
 
 	let service: SecurityCookieService;
 
-	let sessionService: SessionService;
-	let sessionServiceSpy: jasmine.SpyObj<SessionService>;
+	let sessionService: StorageSessionService;
+	let sessionServiceSpy: jasmine.SpyObj<StorageSessionService>;
 
 	beforeEach(() => {
 		TestBed.configureTestingModule({
@@ -20,17 +20,17 @@ describe('SecurityCookieService (Generated)', () => {
 			],
 			providers: [
 				SecurityCookieService,
-				SessionService,
+				StorageSessionService,
 
 				{
-					provide: SessionService,
+					provide: StorageSessionService,
 					useValue: jasmine.createSpyObj('SessionService', ['getItem', 'setItem', 'removeItem'])
 				},
 			]
 		});
 		service = TestBed.inject(SecurityCookieService);
-		sessionService = TestBed.inject(SessionService);
-		sessionServiceSpy = TestBed.inject(SessionService) as jasmine.SpyObj<SessionService>;
+		sessionService = TestBed.inject(StorageSessionService);
+		sessionServiceSpy = TestBed.inject(StorageSessionService) as jasmine.SpyObj<StorageSessionService>;
 	});
 
 	it('should be created', () => {

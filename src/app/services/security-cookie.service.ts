@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Constants } from '../shared/constants/constants';
 import { IUser } from '../shared/interfaces/i-user';
-import { SessionService } from './session.service';
+import { StorageSessionService } from './storage-session.service';
 
 @Injectable({
 	providedIn: 'root'
@@ -12,7 +12,7 @@ export class SecurityCookieService {
 	currentUser!: IUser | null;
 
 	constructor(
-		private sessionService: SessionService,
+		private sessionService: StorageSessionService,
 	) { }
 
 	storeUser(user: IUser): void {

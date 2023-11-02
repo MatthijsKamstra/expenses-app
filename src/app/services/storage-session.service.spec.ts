@@ -1,25 +1,33 @@
 
 import { TestBed } from '@angular/core/testing';
-import { LocalStorageService } from './local-storage.service';
 
-describe('LocalStorageService (Generated)', () => {
 
-	let service: LocalStorageService;
+import { StorageSessionService } from './storage-session.service';
 
+// import directly from sessionService
+
+describe('StorageSessionService (Generated)', () => {
+
+	let service: StorageSessionService;
+	// let sessionService: SessionService; // [mck] might be removed in the future
 	beforeEach(() => {
 		TestBed.configureTestingModule({
 			imports: [
 				// TranslateModule.forRoot(),
 			],
-			providers: [LocalStorageService,]
+			providers: [StorageSessionService,]
 		});
-		service = TestBed.inject(LocalStorageService);
+		service = TestBed.inject(StorageSessionService);
+		// sessionService = TestBed.inject(SessionService); // [mck] might be removed in the future
 	});
-
 
 	it('should be created', () => {
 		expect(service).toBeTruthy();
 	});
+
+	// // SessionComponent
+	// describe('SessionComponent class vars', () => {
+	// });
 
 	// 1. Generated test for "setItem"
 	describe('setItem', () => {
@@ -27,7 +35,7 @@ describe('LocalStorageService (Generated)', () => {
 		// test with return type `void`
 		it('#should spy on "setItem" with return void', () => {
 			// Arrange
-			const _paramKey: string = "ethereal-Lake";
+			const _paramKey: string = "hellish-AlvinMaker";
 			const _paramValue: any = {};
 			const _spy = spyOn(service, 'setItem');
 			// Act
@@ -42,7 +50,7 @@ describe('LocalStorageService (Generated)', () => {
 		it('#setItem should return void', () => {
 			// Arrange
 			const _IValue: IValue = SPEC_CONST.getValue(IValue);
-			const _paramKey: string = "used-HarryHeck";
+			const _paramKey: string = "tenuous-ClintBarton";
 			const _paramValue: any = {};
 			// Act
 			const _void: void = service.setItem(_paramKey, _paramValue);
@@ -61,7 +69,7 @@ describe('LocalStorageService (Generated)', () => {
 		it('#getItem should return any', () => {
 			// FIXME "getItem" with return type `any` (x)
 			// Arrange
-			const _paramKey: string = "understood-BoomBoom";
+			const _paramKey: string = "regular-Shape";
 			const _returnAny: any = {};
 			const _spy = spyOn(service, 'getItem').and.returnValue(_returnAny);
 			// Act
@@ -77,7 +85,7 @@ describe('LocalStorageService (Generated)', () => {
 		it('#getItem should return any', () => {
 			// Arrange
 			const _IValue: IValue = SPEC_CONST.getValue(IValue);
-			const _paramKey: string = "ajar-Shape";
+			const _paramKey: string = "intelligent-Bloke";
 			// Act
 			const _any: any = service.getItem(_paramKey);
 			// Assert
@@ -93,7 +101,7 @@ describe('LocalStorageService (Generated)', () => {
 		// test with return type `void`
 		it('#should spy on "removeItem" with return void', () => {
 			// Arrange
-			const _paramKey: string = "sophisticated-TheSpike";
+			const _paramKey: string = "spiteful-Nextwave";
 			const _spy = spyOn(service, 'removeItem');
 			// Act
 			service.removeItem(_paramKey);
@@ -107,7 +115,7 @@ describe('LocalStorageService (Generated)', () => {
 		it('#removeItem should return void', () => {
 			// Arrange
 			const _IValue: IValue = SPEC_CONST.getValue(IValue);
-			const _paramKey: string = "unique-NatashaRomanoff";
+			const _paramKey: string = "obese-Lockjaw";
 			// Act
 			const _void: void = service.removeItem(_paramKey);
 			// Assert
@@ -124,7 +132,6 @@ describe('LocalStorageService (Generated)', () => {
 		// test with return type `void`
 		it('#should spy on "clear" with return void', () => {
 			// Arrange
-
 			const _spy = spyOn(service, 'clear');
 			// Act
 			service.clear();
@@ -155,7 +162,7 @@ describe('LocalStorageService (Generated)', () => {
 		// test with return type `void`
 		it('#should spy on "setBool" with return void', () => {
 			// Arrange
-			const _paramKey: string = "free-Pride";
+			const _paramKey: string = "general-BenGrimm";
 			const _paramValue: boolean = true;
 			const _spy = spyOn(service, 'setBool');
 			// Act
@@ -170,7 +177,7 @@ describe('LocalStorageService (Generated)', () => {
 		it('#setBool should return void', () => {
 			// Arrange
 			const _IValue: IValue = SPEC_CONST.getValue(IValue);
-			const _paramKey: string = "relieved-DorianGray";
+			const _paramKey: string = "uneven-GoldenGuardian";
 			const _paramValue: boolean = true;
 			// Act
 			const _void: void = service.setBool(_paramKey, _paramValue);
@@ -188,7 +195,7 @@ describe('LocalStorageService (Generated)', () => {
 		// test with return type `boolean`
 		it('#should return boolean true', () => {
 			// Arrange
-			const _paramKey: string = "complete-RickJones";
+			const _paramKey: string = "jobless-CaptainStacy";
 			const _returnBoolean: boolean = true;
 			const _spy = spyOn(service, 'getBool').and.returnValue(_returnBoolean);
 			// Act
@@ -201,7 +208,7 @@ describe('LocalStorageService (Generated)', () => {
 
 		it('#should return boolean false', () => {
 			// Arrange
-			const _paramKey: string = "soggy-The198";
+			const _paramKey: string = "infamous-TigerShark";
 			const _returnBoolean: boolean = false;
 			const _spy = spyOn(service, 'getBool').and.returnValue(_returnBoolean);
 			// Act
@@ -214,7 +221,7 @@ describe('LocalStorageService (Generated)', () => {
 
 		it('#should check return value "getBool"', () => {
 			// Arrange
-			const _paramKey: string = "soggy-The198";
+			const _paramKey: string = "infamous-TigerShark";
 			// Act
 			// Assert
 			expect(service.getBool(_paramKey)).toBeFalse();
@@ -229,7 +236,7 @@ describe('LocalStorageService (Generated)', () => {
 		// test with return type `void`
 		it('#should spy on "setObject" with return void', () => {
 			// Arrange
-			const _paramKey: string = "wide-BenUrich";
+			const _paramKey: string = "dirty-Hulkling";
 			const _paramValue: object = {};
 			const _spy = spyOn(service, 'setObject');
 			// Act
@@ -244,8 +251,8 @@ describe('LocalStorageService (Generated)', () => {
 		it('#setObject should return void', () => {
 			// Arrange
 			const _IValue: IValue = SPEC_CONST.getValue(IValue);
-			const _paramKey: string = "wakeful-Reaper";
-			const _paramValue: object = {};
+			const _paramKey: string = "belligerent-Silverclaw";
+			const _paramValue: object = SPEC_CONST.getValue(OBJECT); // {};
 			// Act
 			const _void: void = service.setObject(_paramKey, _paramValue);
 			// Assert
@@ -263,7 +270,7 @@ describe('LocalStorageService (Generated)', () => {
 		it('#getObject should return object', () => {
 			// FIXME "getObject" with return type `object` (x)
 			// Arrange
-			const _paramKey: string = "craven-KenEllis";
+			const _paramKey: string = "creepy-Sersi";
 			const _returnObject: object = {};
 			const _spy = spyOn(service, 'getObject').and.returnValue(_returnObject);
 			// Act
@@ -279,7 +286,7 @@ describe('LocalStorageService (Generated)', () => {
 		it('#getObject should return object', () => {
 			// Arrange
 			const _IValue: IValue = SPEC_CONST.getValue(IValue);
-			const _paramKey: string = "brainy-Vertigo";
+			const _paramKey: string = "melted-Deathstrike";
 			// Act
 			const _object: object = service.getObject(_paramKey);
 			// Assert
@@ -289,13 +296,16 @@ describe('LocalStorageService (Generated)', () => {
 
 	});
 
+
+
+
 	describe('old tests', () => {
+
 		// 1. Generated test for "setItem"
 		it('#setItem should return void', () => {
 			// Arrange
 			const key: string = "";
 			const value: any = {};
-			const data = { data: "ff" };
 
 			const result = service.setItem(key, value);
 			const spy = spyOn(service, 'setItem');
@@ -313,9 +323,9 @@ describe('LocalStorageService (Generated)', () => {
 		// 2. Generated test for "getItem"
 		it('#getItem should return any', () => {
 			// Arrange
-			const key: string = "test";
-			const data = { data: "ff" };
-
+			const key: string = "foobar";
+			const data = { data: 'ffff' }
+			service.setItem(key, data);
 			const result: any = service.getItem(key);
 			const spy = spyOn(service, 'getItem').and.returnValue(data);
 
@@ -324,20 +334,15 @@ describe('LocalStorageService (Generated)', () => {
 
 			// Assert
 			expect(service.getItem).toBeDefined();
-			expect(result).toBeNull();
+			// expect(result).toEqual(JSON.stringify(data));
 			expect(spy).toHaveBeenCalled();
+			expect(service.getItem(key)).toEqual(data);
 		});
 
 		// 3. Generated test for "removeItem"
-		/**
-		 *	removeItem(key: string) {
-		 *		localStorage.removeItem(key);
-		 *	}
-		 */
 		it('#removeItem should return void', () => {
 			// Arrange
 			const key: string = "";
-			const data = { data: "ff" };
 
 			const result = service.removeItem(key);
 			const spy = spyOn(service, 'removeItem');
@@ -353,13 +358,9 @@ describe('LocalStorageService (Generated)', () => {
 		});
 
 		// 4. Generated test for "clear"
-		/**
-		 *	clear() {
-		 *		localStorage.clear();
-		 *	}
-		 */
 		it('#clear should return void', () => {
 			// Arrange
+
 			const result = service.clear();
 			const spy = spyOn(service, 'clear');
 
@@ -374,7 +375,6 @@ describe('LocalStorageService (Generated)', () => {
 		});
 
 		// 5. Generated test for "setBool"
-
 		it('#setBool should return void', () => {
 			// Arrange
 			const key: string = "";
@@ -394,23 +394,24 @@ describe('LocalStorageService (Generated)', () => {
 		});
 
 		// 6. Generated test for "getBool"
-		xit('#getBool should return boolean', () => {
+		it('#getBool should return boolean', () => {
 			// Arrange
-			const key: string = "";
-
+			const key: string = "rest";
+			const bool: boolean = false;
+			service.setBool(key, bool);
 			const result: boolean = service.getBool(key);
-			const spy = spyOn(service, 'getBool').and.returnValue(localStorage.getItem(key) === 'true');
+			const spy = spyOn(service, 'getBool').and.returnValue(bool);
 
 			// Act
 			service.getBool(key);
 
 			// Assert
-			expect(result).toBe(localStorage.getItem(key) === 'true');
-			expect(result).toBeTruthy();
+			expect(result).toBe(false);
+			expect(result).toBeFalsy();
 			expect(spy).toHaveBeenCalled();
-			expect(service.getBool(key)).toBeTruthy();
+			expect(service.getBool(key)).toBeFalsy();
 			expect(spy).toHaveBeenCalledTimes(2);
-			expect(service.getBool(key)).toBeTrue();
+			expect(service.getBool(key)).toBeFalse();
 			expect(spy).toHaveBeenCalledTimes(3);
 			expect(service.getBool).toBeDefined();
 		});
@@ -438,7 +439,8 @@ describe('LocalStorageService (Generated)', () => {
 		it('#getObject should return object', () => {
 			// Arrange
 			const key: string = "";
-			const data = { data: "ff" };
+			const data = { data: 'foooo' }
+
 			const result: object = service.getObject(key);
 			const spy = spyOn(service, 'getObject').and.returnValue(data);
 
@@ -450,6 +452,7 @@ describe('LocalStorageService (Generated)', () => {
 			// expect(result).toBeNull();
 			expect(spy).toHaveBeenCalled();
 		});
+
 	});
 
 });

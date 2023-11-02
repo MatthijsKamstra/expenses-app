@@ -4,7 +4,7 @@ import { Observable, catchError, tap, throwError } from "rxjs";
 import { NotificationService } from "../services/notification.service";
 import { SecurityCookieService } from "../services/security-cookie.service";
 import { SecurityService } from "../services/security.service";
-import { SessionService } from "../services/session.service";
+import { StorageSessionService } from "../services/storage-session.service";
 import { Constants } from "../shared/constants/constants";
 
 
@@ -15,7 +15,7 @@ export class HttpXsrfInterceptor implements HttpInterceptor {
 		private notificationService: NotificationService,
 		private securityCookieService: SecurityCookieService,
 		private securityService: SecurityService,
-		private sessionService: SessionService,
+		private sessionService: StorageSessionService,
 		private tokenExtractor: HttpXsrfTokenExtractor,
 	) {
 	}

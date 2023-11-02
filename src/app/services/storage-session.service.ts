@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
 	providedIn: 'root'
 })
-export class SessionService {
+export class StorageSessionService {
 
 	setItem(key: string, value: any) {
 		sessionStorage.setItem(key, value);
