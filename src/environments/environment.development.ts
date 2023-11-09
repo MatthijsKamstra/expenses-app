@@ -2,7 +2,7 @@ import { IEnvironment } from "src/app/shared/interfaces/i-environment";
 
 export const environment: IEnvironment = {
 	production: false,
-	apiEnabled: false,
+	apiEnabled: true,
 	feature: {
 		dashboard: false,
 		map: true,

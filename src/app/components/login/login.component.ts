@@ -1,8 +1,10 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SecurityService } from 'src/app/services/security.service';
+import { TestService } from 'src/app/services/test.service';
+import { VersionService } from 'src/app/services/version.service';
 import { Redirects } from 'src/app/shared/constants/redirects';
 import { ICredentials } from 'src/app/shared/interfaces/i-credentials';
 import { IUser } from 'src/app/shared/interfaces/i-user';
@@ -12,7 +14,7 @@ import { IUser } from 'src/app/shared/interfaces/i-user';
 	templateUrl: './login.component.html',
 	styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
 	// set loading on when getting data from server
 	isLoading: boolean = false; // check icons
@@ -27,9 +29,11 @@ export class LoginComponent {
 	});
 
 	constructor(
-		public router: Router,
 		private securityService: SecurityService,
+		public router: Router,
 	) { }
+
+	ngOnInit(): void { }
 
 	// ____________________________________ login ____________________________________
 
@@ -39,16 +43,27 @@ export class LoginComponent {
 	 * @param credentials
 	 */
 	loginUser(credentials: ICredentials) {
+		// console.log(credentials);
 		this.securityService.login(credentials)
 			.subscribe({
-				next: (user: IUser) => {
-					this.router.navigate([Redirects.REDIRECT_AFTER_LOGIN]);
+				next: (data: any) => {
+					console.log(data);
+					console.info('login true')
+					this.isLoading = false;
+					if (data.error) {
+						console.log('error');
+					} else {
+						console.log('done');
+					}
+					// this.router.navigate([Redirects.REDIRECT_AFTER_LOGIN]);
 				},
 				error: (error: HttpErrorResponse) => {
+					console.info('login false')
 					this.isLoading = false;
 					// If we get here then there was a problem with the login request to
 					// the server
 					this.handleLoginError(error);
+					console.warn(error);
 				}
 			});
 	};
@@ -85,7 +100,6 @@ export class LoginComponent {
 			username: this.loginForm.value.username as string,
 			password: this.loginForm.value.password as string
 		}
-
 		this.loginUser(credentials);
 	}
 

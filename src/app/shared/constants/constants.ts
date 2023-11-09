@@ -6,6 +6,14 @@ import { Injectable } from '@angular/core';
 })
 export class Constants {
 	// path
+	public static versionURL: string = '/api/version';
+
+	public static testGetURL: string = '/api/test/get';
+	public static testPostURL: string = '/api/test/post';
+	public static testLoginURL: string = '/api/test/login';
+	public static testStatus200URL: string = '/api/test/status200';
+	public static testStatus404URL: string = '/api/test/status404';
+
 	public static loginURL: string = '/user/login';
 	public static logoutURL: string = '/user/logout';
 

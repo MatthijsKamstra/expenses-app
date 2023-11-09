@@ -39,17 +39,14 @@ export class SecurityService {
 		let observable: Observable<IUser>;
 
 		if (environment.apiEnabled) {
+			// observable = this.http.post<IUser>(Api.getUrl().loginApi, credentials, { withCredentials: true });
 			observable = this.http.post<IUser>(Api.getUrl().loginApi, credentials, { withCredentials: true });
 		} else {
 			// needed for locally testing
 			observable = this.http.get<IUser>(url);
 		}
 
-		return observable.pipe(
-			tap((data) => {
-				this.securityCookieService.storeUser(data);
-			})
-		);
+		return observable;
 	}
 
 	navigateToLogoutPage() {
