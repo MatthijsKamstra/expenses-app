@@ -18,9 +18,8 @@ export class HomePageComponent implements OnInit {
 	ngOnInit(): void {
 		this.getVersion();
 		// this.getTest();
-		this.getTestFocus();
+		// this.getTestFocus();
 	}
-
 
 	getVersion() {
 		this.versionService.getVersion().subscribe({

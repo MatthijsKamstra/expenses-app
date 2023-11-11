@@ -4,9 +4,9 @@ import { SettingsPageComponent } from "../pages/settings-page/settings-page.comp
 import { StyleguideComponent } from "../pages/styleguide/styleguide.component";
 
 export const secureRoutes: Routes = [
-	{ path: "styleguide", title: "Test Styleguide", component: StyleguideComponent },
-	{ path: "settings", title: "Page Settings", component: SettingsPageComponent },
-	{ path: "dashboard", title: "Page Dashboard", component: DashboardPageComponent },
+	// { path: "styleguide", title: "Test Styleguide", component: StyleguideComponent },
+	{ path: "dashboard", title: "Dashboard", component: DashboardPageComponent },
+	{ path: "settings", title: "Settings", component: SettingsPageComponent },
 
 	// { path: "dashboard", title: "Dashboard", component: DashboardPageComponent },
 	// { path: "styleguide", title: "Styleguide", component: StyleguideComponent },

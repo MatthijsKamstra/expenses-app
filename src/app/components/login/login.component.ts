@@ -47,23 +47,23 @@ export class LoginComponent implements OnInit {
 		this.securityService.login(credentials)
 			.subscribe({
 				next: (data: any) => {
-					console.log(data);
-					console.info('login true')
-					this.isLoading = false;
-					if (data.error) {
-						console.log('error');
-					} else {
-						console.log('done');
-					}
-					// this.router.navigate([Redirects.REDIRECT_AFTER_LOGIN]);
+					// console.log(data);
+					// console.info('login true')
+					// this.isLoading = false;
+					// if (data.error) {
+					// 	console.log('error');
+					// } else {
+					// 	console.log('done');
+					// }
+					this.router.navigate([Redirects.REDIRECT_AFTER_LOGIN]);
 				},
 				error: (error: HttpErrorResponse) => {
-					console.info('login false')
+					// console.info('login false')
 					this.isLoading = false;
 					// If we get here then there was a problem with the login request to
 					// the server
 					this.handleLoginError(error);
-					console.warn(error);
+					// console.warn(error);
 				}
 			});
 	};

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Icon, Layer, MapOptions, Marker, icon, latLng, marker, tileLayer } from 'leaflet';
+import { pagesRoutes } from 'src/app/routes/pages.route';
 import { StorageLocalService } from 'src/app/services/storage-local.service';
 import { Constants } from 'src/app/shared/constants/constants';
 import { IGeo, IGeoPlus } from 'src/app/shared/interfaces/i-geo';
@@ -11,7 +12,6 @@ import { LatLngUtils } from 'src/app/shared/utils/lat-lng-utils';
 	styleUrls: ['./dashboard-page.component.scss']
 })
 export class DashboardPageComponent implements OnInit {
-
 
 	title: string = 'DashBoard';
 
@@ -45,6 +45,29 @@ export class DashboardPageComponent implements OnInit {
 		} else {
 			this.addMarkers();
 		}
+		this.initGeo();
+	}
+
+
+	initGeo() {
+		// console.log('initGeo');
+
+		let scope = this;
+		navigator.permissions &&
+			navigator.permissions.query({ name: 'geolocation' }).then(function (PermissionStatus) {
+				// console.log('xx');
+				// console.log(PermissionStatus);
+
+				if ('granted' === PermissionStatus.state) {
+					// console.log('yes possible');
+
+					// navigator.geolocation.getCurrentPosition(function (geoposition) {
+					// 	console.log(geoposition) /* You can use this position without prompting the user if the permission had already been granted */
+					// })
+					scope.geoFindMe();
+				}
+			})
+
 	}
 
 
@@ -78,7 +101,9 @@ export class DashboardPageComponent implements OnInit {
 				var geo: IGeoPlus = {
 					lat: latitude,
 					lng: longitude,
-					zoom: 1
+					zoom: 1,
+					coords: position.coords,
+					position: position
 				}
 				var marker: Marker = this.createMarker(geo);
 				this.layers = [];
@@ -86,6 +111,7 @@ export class DashboardPageComponent implements OnInit {
 
 				this.storageLocalService.setObject(Constants.LOCATION_CURRENT, geo);
 
+				// this.geo = JSON.stringify(geo);
 
 			}, (e: GeolocationPositionError) => {
 				console.log('error');

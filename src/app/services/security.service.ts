@@ -46,7 +46,12 @@ export class SecurityService {
 			observable = this.http.get<IUser>(url);
 		}
 
-		return observable;
+		// return observable;
+		return observable.pipe(
+			tap((data) => {
+				this.securityCookieService.storeUser(data);
+			})
+		);
 	}
 
 	navigateToLogoutPage() {
@@ -56,11 +61,12 @@ export class SecurityService {
 	logout(): Observable<{}> {
 		const url = Api.getUrl().logoutApi;
 		let observable: Observable<{}>;
-		if (environment.apiEnabled) {
-			observable = this.http.post(url, {});
-		} else {
-			observable = this.http.get(url);
-		}
+		// if (environment.apiEnabled) {
+		// 	observable = this.http.post(url, {});
+		// } else {
+		// 	observable = this.http.get(url);
+		// }
+		observable = this.http.get(url);
 		return observable;
 	}
 

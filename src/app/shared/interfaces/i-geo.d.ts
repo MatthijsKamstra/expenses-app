@@ -6,4 +6,6 @@ export interface IGeo {
 
 export interface IGeoPlus extends IGeo {
 	zoom: number;
+	coords?: GeolocationCoordinates;
+	position?: GeolocationPosition;
 }
