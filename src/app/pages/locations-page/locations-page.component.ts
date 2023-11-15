@@ -52,7 +52,7 @@ export class LocationsPageComponent implements OnInit {
 				console.warn(error);
 			},
 			complete: () => {
-				console.info('done');
+				// console.info('done');
 			}
 		});
 	}
