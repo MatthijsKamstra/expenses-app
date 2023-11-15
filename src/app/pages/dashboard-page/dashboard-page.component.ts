@@ -83,13 +83,13 @@ export class DashboardPageComponent implements OnInit {
 	}
 
 	geoFindMe() {
-		console.log('geoFindMe()');
+		// console.log('geoFindMe()');
 		if (navigator.geolocation == null) {
 			this.mapFeedback = "Geolocation is not supported by your browser";
 		} else {
 			this.mapFeedback = "Locating...";
 			navigator.geolocation.getCurrentPosition((position: GeolocationPosition) => {
-				console.log('success');
+				// console.log('success');
 				var latitude = position.coords.latitude;
 				var longitude = position.coords.longitude;
 				this.mapFeedback = "";

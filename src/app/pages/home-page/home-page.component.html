@@ -5,8 +5,17 @@
 		<div class="col-12 col-md-6">
 
 			<h2>🚗</h2>
-			<p>I have nothing but this buttons</p>
-			<a class="btn btn-dark" href="" routerLink="/login">Login</a>
+
+			<div *ngIf="this.version">
+				<p>I have nothing but this buttons</p>
+				<a class="btn btn-dark" href="" routerLink="/login">Login</a>
+				<p class="text-muted mt-5">version: {{this.version}}</p>
+			</div>
+
+			<div *ngIf="!this.version">
+				<p>I have nothing</p>
+			</div>
+
 		</div>
 	</div>
 </section>

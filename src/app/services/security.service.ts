@@ -17,8 +17,8 @@ export class SecurityService {
 
 	constructor(
 		private http: HttpClient,
-		private securityCookieService: SecurityCookieService,
 		private router: Router,
+		private securityCookieService: SecurityCookieService,
 	) { }
 
 	/**
