@@ -32,6 +32,10 @@ export class Api {
 
 				locationApi: `${environment.apiUrl}${Constants.locationURL}`,
 				locationsApi: `${environment.apiUrl}${Constants.locationsURL}`,
+				// locationsApi(userID: string): string {
+				// 	return `${environment.apiUrl}${Constants.locationsURL.replace(':userID', `${userID}`)}`
+				// },
+
 			}
 		} else {
 			return {
@@ -72,4 +76,5 @@ export interface IConstants {
 
 	locationApi: string;
 	locationsApi: string;
+	// locationsApi: (id: string) => string;
 }

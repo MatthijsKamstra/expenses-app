@@ -1,0 +1,21 @@
+<app-header title="{{this.title}}"></app-header>
+
+<section class="container">
+
+	<div class="mb-2">
+		<app-map [layers]="layers"></app-map>
+	</div>
+
+	<p>
+		last location: {{geo}}
+	</p>
+
+
+	<ul>
+		<li *ngFor="let location of this.locationsArr; let i = index">
+			{{location.name}} (lat: {{location.latitude}}, long: {{location.longitude}})
+		</li>
+	</ul>
+
+
+</section>

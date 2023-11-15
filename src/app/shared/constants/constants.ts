@@ -14,11 +14,14 @@ export class Constants {
 	public static testStatus200URL: string = '/api/test/status200';
 	public static testStatus404URL: string = '/api/test/status404';
 
+	// api
+	public static locationURL: string = '/api/location';
+	public static locationsURL: string = '/api/locations';
+
+	// user?
 	public static loginURL: string = '/user/login';
 	public static logoutURL: string = '/user/logout';
 
-	public static locationURL: string = '/user/location';
-	public static locationsURL: string = '/user/locations';
 
 	// Headers
 	public static AUTH_HEADER: string = 'X-Auth-Token';

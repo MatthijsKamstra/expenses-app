@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
-
 // app
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -46,6 +45,8 @@ import { GuestLayoutComponent } from './layout/guest/guest-layout/guest-layout.c
 import { PageContentComponent } from './layout/page-content/page-content.component';
 // directives
 import { DebugDirective } from "./shared/directives/debug.directive";
+import { LocationsPageComponent } from './pages/locations-page/locations-page.component';
+import { LocationAddPageComponent } from './pages/location-add-page/location-add-page.component';
 
 @NgModule({
 	declarations: [
@@ -84,6 +85,8 @@ import { DebugDirective } from "./shared/directives/debug.directive";
 		ToastsComponent,
 		TooltipsComponent,
 		UsersPageComponent,
+  LocationsPageComponent,
+  LocationAddPageComponent,
 	],
 	imports: [
 		BrowserModule,

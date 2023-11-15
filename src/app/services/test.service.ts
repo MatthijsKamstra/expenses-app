@@ -9,8 +9,6 @@ import { Api } from '../shared/config/api';
 })
 export class TestService {
 
-
-
 	constructor(
 		private http: HttpClient,
 	) { }

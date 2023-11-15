@@ -1,11 +1,13 @@
 import { Routes } from "@angular/router";
 import { DashboardPageComponent } from "../pages/dashboard-page/dashboard-page.component";
+import { LocationsPageComponent } from "../pages/locations-page/locations-page.component";
 import { SettingsPageComponent } from "../pages/settings-page/settings-page.component";
 import { StyleguideComponent } from "../pages/styleguide/styleguide.component";
 
 export const secureRoutes: Routes = [
 	// { path: "styleguide", title: "Test Styleguide", component: StyleguideComponent },
 	{ path: "dashboard", title: "Dashboard", component: DashboardPageComponent },
+	{ path: "locations", title: "Locations", component: LocationsPageComponent },
 	{ path: "settings", title: "Settings", component: SettingsPageComponent },
 
 	// { path: "dashboard", title: "Dashboard", component: DashboardPageComponent },
