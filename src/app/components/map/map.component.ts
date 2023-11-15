@@ -16,7 +16,7 @@ export class MapComponent implements OnInit {
 
 	options: MapOptions = {
 		layers: [
-			tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '&copy; <a href="https://www.alliander">Alliander</a>' })
+			tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '&copy; <a href="https://www.matthijskamstra.nl">[mck]</a>' })
 		],
 		zoom: 8,
 		center: latLng(52.297, 5.251)

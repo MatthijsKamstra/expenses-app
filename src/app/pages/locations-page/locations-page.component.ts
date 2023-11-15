@@ -39,8 +39,6 @@ export class LocationsPageComponent implements OnInit {
 	) { }
 
 	ngOnInit(): void {
-		console.log('locations');
-
 		let token = this.securityService.currentToken();
 
 		this.locationsService.getLocations(token).subscribe({
@@ -64,11 +62,9 @@ export class LocationsPageComponent implements OnInit {
 		this.layers = [];
 		for (let i = 0; i < this.locationsArr.length; i++) {
 			const location: ILocations = this.locationsArr[i];
-			console.log(location);
-
 			// voorlopig even in de zee gooien
 			// { "lat": 52.442929071469806, "lng": 4.256211746387448 }
-			let geo: IGeo = LatLngUtils.getRandomLatLng();
+			// let geo: IGeo = LatLngUtils.getRandomLatLng();
 			let mark = marker([location.latitude, location.longitude], {
 				icon: icon({
 					...Icon.Default.prototype.options,
