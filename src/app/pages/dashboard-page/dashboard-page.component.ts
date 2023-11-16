@@ -53,6 +53,7 @@ export class DashboardPageComponent implements OnInit {
 			this.layers = [];
 			this.layers.push(marker);
 		} else {
+			// why add magical 10 markers
 			this.addMarkers();
 		}
 		this.initGeo();
@@ -85,7 +86,7 @@ export class DashboardPageComponent implements OnInit {
 		return 'https://www.ah.nl';
 	}
 
-	openMap() {
+	onOpenMapHandler() {
 		window.open(`https://www.openstreetmap.org/#map=18/${this.latitude}/${this.longitude}`, "_blank");
 	}
 
@@ -132,7 +133,7 @@ export class DashboardPageComponent implements OnInit {
 		}
 	}
 
-	submit() {
+	onSubmitHandler() {
 		let obj: ILocation = {
 			date: new Date(),
 			latitude: this.latitude,

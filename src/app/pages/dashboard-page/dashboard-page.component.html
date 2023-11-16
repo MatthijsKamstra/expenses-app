@@ -22,11 +22,12 @@
 		<!-- <a id="mapLink" target="_blank" href="" (click)="this.openLink()">{{mapLink}}</a><br /> -->
 
 		<div class="input-group mb-3" *ngIf="this.isPermission">
-			<button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="this.submit()"
+			<button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="this.onSubmitHandler()"
 				[disabled]="this.isSubmitDisabled">Submit</button>
 			<input type="text" class="form-control" placeholder="lon and lat" aria-label="lon and lat"
 				aria-describedby="button-addon2" value="{{mapLink}}" disabled="true">
-			<button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="this.openMap()">
+			<button class="btn btn-outline-secondary" type="button" id="button-addon2"
+				(click)="this.onOpenMapHandler()">
 				<app-icons icon="marker"></app-icons>
 			</button>
 		</div>
@@ -50,7 +51,7 @@
 		<p id="mapFeedback">{{mapFeedback}}</p>
 		<a id="mapLink" target="_blank" href="" (click)="this.openLink()">{{mapLink}}</a><br />
 
-		<button id="submit-geo" class="btn btn-warning" (click)="this.submit()"
+		<button id="submit-geo" class="btn btn-warning" (click)="this.onSubmitHandler()"
 			[disabled]="this.isSubmitDisabled">Submit naar server</button>
 	</div>
 
