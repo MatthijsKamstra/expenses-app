@@ -35,13 +35,11 @@ export class LocationsPageComponent implements OnInit {
 
 	constructor(
 		private locationsService: LocationsService,
-		private securityService: SecurityService
+		private securityService: SecurityService,
 	) { }
 
 	ngOnInit(): void {
-		let token = this.securityService.currentToken();
-
-		this.locationsService.getLocations(token).subscribe({
+		this.locationsService.getLocations().subscribe({
 			next: (data: any) => {
 				// console.log(data);
 				this.locationsArr = data.content;
@@ -56,7 +54,6 @@ export class LocationsPageComponent implements OnInit {
 			}
 		});
 	}
-
 
 	addMarkers() {
 		this.layers = [];

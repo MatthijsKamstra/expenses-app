@@ -31,8 +31,6 @@ export class HomePageComponent implements OnInit {
 	}
 
 	isLogedIn() {
-		console.log(this.securityService.isAuthenticated());
-
 		if (this.securityService.isAuthenticated()) {
 			this.router.navigate([Redirects.REDIRECT_AFTER_LOGIN]);
 		}

@@ -1,9 +1,13 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Icon, Layer, MapOptions, Marker, icon, latLng, marker, tileLayer } from 'leaflet';
 import { pagesRoutes } from 'src/app/routes/pages.route';
+import { LocationsService } from 'src/app/services/locations.service';
+import { SecurityService } from 'src/app/services/security.service';
 import { StorageLocalService } from 'src/app/services/storage-local.service';
 import { Constants } from 'src/app/shared/constants/constants';
 import { IGeo, IGeoPlus } from 'src/app/shared/interfaces/i-geo';
+import { ILocation } from 'src/app/shared/interfaces/i-location';
 import { LatLngUtils } from 'src/app/shared/utils/lat-lng-utils';
 
 @Component({
@@ -12,6 +16,7 @@ import { LatLngUtils } from 'src/app/shared/utils/lat-lng-utils';
 	styleUrls: ['./dashboard-page.component.scss']
 })
 export class DashboardPageComponent implements OnInit {
+
 
 	title: string = 'DashBoard';
 
@@ -26,14 +31,19 @@ export class DashboardPageComponent implements OnInit {
 
 	mapLink: string = '';
 	mapFeedback: string = '';
-	isSubmitDisabled: boolean = true;
-
 	geo!: IGeoPlus | any;
+	latitude!: number;
+	longitude!: number;
+
+	isSubmitDisabled: boolean = true;
+	isPermission: boolean = false;
+
 
 	constructor(
 		private storageLocalService: StorageLocalService,
+		private locationsService: LocationsService,
+		private securityService: SecurityService,
 	) { }
-
 
 	ngOnInit(): void {
 		var json = this.storageLocalService.getObject(Constants.LOCATION_CURRENT);
@@ -48,34 +58,35 @@ export class DashboardPageComponent implements OnInit {
 		this.initGeo();
 	}
 
-
 	initGeo() {
 		// console.log('initGeo');
-
-		let scope = this;
 		navigator.permissions &&
-			navigator.permissions.query({ name: 'geolocation' }).then(function (PermissionStatus) {
+			navigator.permissions.query({ name: 'geolocation' }).then((PermissionStatus) => {
 				// console.log('xx');
 				// console.log(PermissionStatus);
 
 				if ('granted' === PermissionStatus.state) {
 					// console.log('yes possible');
 
+
+
 					// navigator.geolocation.getCurrentPosition(function (geoposition) {
 					// 	console.log(geoposition) /* You can use this position without prompting the user if the permission had already been granted */
 					// })
-					scope.geoFindMe();
+					this.geoFindMe();
 				}
 			})
 
 	}
 
-
 	openLink() {
 		// 	mapLink.href = 'https://www.openstreetmap.org/#map=18/${latitude}/${longitude}';
 		// 	mapLink.textContent = 'Latitude: ${latitude} °, Longitude: ${longitude} °';
 		return 'https://www.ah.nl';
+	}
 
+	openMap() {
+		window.open(`https://www.openstreetmap.org/#map=18/${this.latitude}/${this.longitude}`, "_blank");
 	}
 
 	getIcon(): string {
@@ -89,18 +100,19 @@ export class DashboardPageComponent implements OnInit {
 		} else {
 			this.mapFeedback = "Locating...";
 			navigator.geolocation.getCurrentPosition((position: GeolocationPosition) => {
+				this.isPermission = true;
 				// console.log('success');
-				var latitude = position.coords.latitude;
-				var longitude = position.coords.longitude;
+				this.latitude = position.coords.latitude;
+				this.longitude = position.coords.longitude;
 				this.mapFeedback = "";
 				this.isSubmitDisabled = false;
-				this.mapLink = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
+				this.mapLink = `Latitude: ${this.latitude}°, Longitude: ${this.longitude}°`;
 				// 	mapLink.href = 'https://www.openstreetmap.org/#map=18/${latitude}/${longitude}';
 				// 	mapLink.textContent = 'Latitude: ${latitude} °, Longitude: ${longitude} °';
 
 				var geo: IGeoPlus = {
-					lat: latitude,
-					lng: longitude,
+					lat: this.latitude,
+					lng: this.longitude,
 					zoom: 1,
 					coords: position.coords,
 					position: position
@@ -121,9 +133,23 @@ export class DashboardPageComponent implements OnInit {
 	}
 
 	submit() {
-		throw new Error('Method not implemented.');
+		let obj: ILocation = {
+			date: new Date(),
+			latitude: this.latitude,
+			longitude: this.longitude,
+		}
+		this.locationsService.setLocation(obj).subscribe({
+			next: (data: any) => {
+				console.log(data);
+			},
+			error: (error: HttpErrorResponse) => {
+				console.warn(error);
+			},
+			complete: () => {
+				console.info('done');
+			}
+		});
 	}
-
 
 	addMarkers() {
 		this.layers = [];

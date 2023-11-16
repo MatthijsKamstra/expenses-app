@@ -1,13 +1,11 @@
 import { HTTP_INTERCEPTORS, HttpClient, HttpErrorResponse, HttpHeaders, HttpRequest, HttpXsrfTokenExtractor } from "@angular/common/http";
 import { HttpClientTestingModule, HttpTestingController } from "@angular/common/http/testing";
 import { TestBed } from "@angular/core/testing";
-import { NgxTranslateModule } from "../module/translate/translate.module";
 import { NotificationService } from "../services/notification.service";
 import { SecurityCookieService } from "../services/security-cookie.service";
 import { SecurityService } from "../services/security.service";
 import { StorageSessionService } from "../services/storage-session.service";
 import { Constants } from "../shared/constants/constants";
-import { SharedTestData } from "../shared/test/test-data/shared-test-data";
 import { HttpXsrfInterceptor } from "./HttpXSRFInterceptor";
 
 describe('HttpXsrfInterceptor', () => {

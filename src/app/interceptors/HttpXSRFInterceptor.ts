@@ -49,11 +49,8 @@ export class HttpXsrfInterceptor implements HttpInterceptor {
 		if (authToken !== null && !req.headers.has(Constants.AUTH_HEADER)) {
 			req = req.clone({ headers: req.headers.set(Constants.AUTH_HEADER, authToken) });
 		}
-
 		return req;
 	}
-
-
 
 	private storeToken(response: HttpResponse<any>) {
 		const token = response.headers.get(Constants.AUTH_HEADER) as string;

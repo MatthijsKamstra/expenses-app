@@ -6,16 +6,46 @@
 		<app-map [layers]="layers"></app-map>
 	</div>
 
-	<p>
+	<p debug>
 		last location: {{geo}}
 	</p>
 
-	<button class="btn btn-warning" id="find-me" (click)="this.geoFindMe()">
-		<app-icons [icon]="this.getIcon()"></app-icons>
-		Show my location
-	</button>
 
-	<div id="wrapper">
+	<div>
+		<h2>Quick register current location</h2>
+		<p>Even een snel een ritje naar x registeren</p>
+		<button class="btn btn-warning" (click)="this.geoFindMe()" *ngIf="!this.isPermission">
+			<app-icons [icon]="this.getIcon()"></app-icons>
+			Show my location
+		</button>
+
+		<!-- <a id="mapLink" target="_blank" href="" (click)="this.openLink()">{{mapLink}}</a><br /> -->
+
+		<div class="input-group mb-3" *ngIf="this.isPermission">
+			<button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="this.submit()"
+				[disabled]="this.isSubmitDisabled">Submit</button>
+			<input type="text" class="form-control" placeholder="lon and lat" aria-label="lon and lat"
+				aria-describedby="button-addon2" value="{{mapLink}}" disabled="true">
+			<button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="this.openMap()">
+				<app-icons icon="marker"></app-icons>
+			</button>
+		</div>
+
+		<p>{{mapFeedback}}</p>
+	</div>
+
+	<div>
+		<h2>Register a ritje</h2>
+	</div>
+
+
+
+	<div id="wrapper" style="display: none;">
+
+		<button class="btn btn-warning" id="find-me" (click)="this.geoFindMe()">
+			<app-icons [icon]="this.getIcon()"></app-icons>
+			Show my location
+		</button>
 
 		<p id="mapFeedback">{{mapFeedback}}</p>
 		<a id="mapLink" target="_blank" href="" (click)="this.openLink()">{{mapLink}}</a><br />
@@ -23,5 +53,7 @@
 		<button id="submit-geo" class="btn btn-warning" (click)="this.submit()"
 			[disabled]="this.isSubmitDisabled">Submit naar server</button>
 	</div>
+
+
 
 </section>
