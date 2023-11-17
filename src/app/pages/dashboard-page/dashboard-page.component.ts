@@ -141,6 +141,8 @@ export class DashboardPageComponent implements OnInit {
 			latitude: this.latitude,
 			longitude: this.longitude,
 		}
+		console.log(obj);
+
 		this.locationsService.setLocation(obj).subscribe({
 			next: (data: any) => {
 				console.log(data);

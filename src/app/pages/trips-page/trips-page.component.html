@@ -10,7 +10,11 @@
 		last location:
 	</p>
 
-
+	<ul>
+		<li *ngFor="let trip of this.tripsArr; let i = index">
+			"{{trip.name}}" / {{trip.date}} (lat: {{trip.latitude}}, lon: {{trip.longitude}})
+		</li>
+	</ul>
 
 
 

@@ -22,6 +22,9 @@ export class Constants {
 	public static loginURL: string = '/user/login';
 	public static logoutURL: string = '/user/logout';
 
+	// trips
+	public static tripURL: string = '/api/trip';
+	public static tripsURL: string = '/api/trips';
 
 	// Headers
 	public static AUTH_HEADER: string = 'X-Auth-Token';

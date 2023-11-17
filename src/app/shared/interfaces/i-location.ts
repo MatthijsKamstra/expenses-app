@@ -1,5 +1,5 @@
 export interface ILocation {
-	date: Date,
+	date: string | Date,
 
 	latitude: number;
 	longitude: number;

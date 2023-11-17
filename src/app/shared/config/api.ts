@@ -32,9 +32,13 @@ export class Api {
 
 				locationApi: `${environment.apiUrl}${Constants.locationURL}`,
 				locationsApi: `${environment.apiUrl}${Constants.locationsURL}`,
+
 				// locationsApi(userID: string): string {
 				// 	return `${environment.apiUrl}${Constants.locationsURL.replace(':userID', `${userID}`)}`
 				// },
+
+				tripApi: `${environment.apiUrl}${Constants.tripURL}`,
+				tripsApi: `${environment.apiUrl}${Constants.tripsURL}`,
 
 			}
 		} else {
@@ -54,12 +58,16 @@ export class Api {
 
 				locationApi: `assets/dummy/json/location.json`,
 				locationsApi: `assets/dummy/json/locations.json`,
+
+				tripApi: `assets/dummy/json/trip.json`,
+				tripsApi: `assets/dummy/json/trips.json`,
 			}
 		}
 	}
 }
 
 export interface IConstants {
+
 
 	env: string;
 
@@ -77,4 +85,7 @@ export interface IConstants {
 	locationApi: string;
 	locationsApi: string;
 	// locationsApi: (id: string) => string;
+
+	tripApi: string;
+	tripsApi: string;
 }
