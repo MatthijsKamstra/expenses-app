@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -44,9 +44,10 @@ import { AuthorisedLayoutComponent } from './layout/authorised/authorised-layout
 import { GuestLayoutComponent } from './layout/guest/guest-layout/guest-layout.component';
 import { PageContentComponent } from './layout/page-content/page-content.component';
 // directives
-import { DebugDirective } from "./shared/directives/debug.directive";
-import { LocationsPageComponent } from './pages/locations-page/locations-page.component';
 import { LocationAddPageComponent } from './pages/location-add-page/location-add-page.component';
+import { LocationsPageComponent } from './pages/locations-page/locations-page.component';
+import { DebugDirective } from "./shared/directives/debug.directive";
+import { TripsPageComponent } from './pages/trips-page/trips-page.component';
 
 @NgModule({
 	declarations: [
@@ -85,8 +86,9 @@ import { LocationAddPageComponent } from './pages/location-add-page/location-add
 		ToastsComponent,
 		TooltipsComponent,
 		UsersPageComponent,
-  LocationsPageComponent,
-  LocationAddPageComponent,
+		LocationsPageComponent,
+		LocationAddPageComponent,
+  TripsPageComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -98,7 +100,7 @@ import { LocationAddPageComponent } from './pages/location-add-page/location-add
 
 		LeafletModule,
 	],
-	providers: [],
+	providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpXsrfInterceptor, multi: true }],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

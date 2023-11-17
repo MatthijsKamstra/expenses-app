@@ -1,11 +1,13 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Icon, Layer, MapOptions, Marker, icon, latLng, marker, tileLayer } from 'leaflet';
 import { pagesRoutes } from 'src/app/routes/pages.route';
 import { LocationsService } from 'src/app/services/locations.service';
 import { SecurityService } from 'src/app/services/security.service';
 import { StorageLocalService } from 'src/app/services/storage-local.service';
 import { Constants } from 'src/app/shared/constants/constants';
+import { Redirects } from 'src/app/shared/constants/redirects';
 import { IGeo, IGeoPlus } from 'src/app/shared/interfaces/i-geo';
 import { ILocation } from 'src/app/shared/interfaces/i-location';
 import { LatLngUtils } from 'src/app/shared/utils/lat-lng-utils';
@@ -16,7 +18,6 @@ import { LatLngUtils } from 'src/app/shared/utils/lat-lng-utils';
 	styleUrls: ['./dashboard-page.component.scss']
 })
 export class DashboardPageComponent implements OnInit {
-
 
 	title: string = 'DashBoard';
 
@@ -43,6 +44,7 @@ export class DashboardPageComponent implements OnInit {
 		private storageLocalService: StorageLocalService,
 		private locationsService: LocationsService,
 		private securityService: SecurityService,
+		private router: Router,
 	) { }
 
 	ngOnInit(): void {
@@ -142,6 +144,7 @@ export class DashboardPageComponent implements OnInit {
 		this.locationsService.setLocation(obj).subscribe({
 			next: (data: any) => {
 				console.log(data);
+				this.router.navigate([Redirects.REDIRECT_AFTER_SUBMIT_TRIP]);
 			},
 			error: (error: HttpErrorResponse) => {
 				console.warn(error);

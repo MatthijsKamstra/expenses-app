@@ -97,6 +97,8 @@ export class IconsComponent implements OnInit {
 			case 'marker': this.icon = 'fa-map-marker'; break;
 			case 'loading': this.icon = 'fa fa-spinner fa-spin'; break;
 
+			case 'trips': this.icon = 'fa-car'; break;
+
 			default:
 				console.log(`case '${this.icon.toLowerCase()}': this.icon = '${this.icon.toLowerCase()}'; break;`);
 				this.icon = 'fa-remove';

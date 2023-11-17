@@ -11,7 +11,6 @@ import { SecurityService } from './security.service';
 })
 export class LocationsService {
 
-
 	constructor(
 		private http: HttpClient,
 		private securityService: SecurityService,
@@ -23,12 +22,12 @@ export class LocationsService {
 	 * @returns
 	*/
 	getLocations(): Observable<any> {
-		let token = this.securityService.currentToken();
+		// let token = this.securityService.currentToken();
 		const url = Api.getUrl().locationsApi;
 		let observable: Observable<any>;
 
 		if (environment.apiEnabled) {
-			observable = this.http.post<any>(url, { token: token });
+			observable = this.http.post<any>(url, {});
 		} else {
 			// needed for locally testing
 			observable = this.http.get<any>(url);
@@ -38,18 +37,16 @@ export class LocationsService {
 	}
 
 	setLocation(obj: ILocation): Observable<any> {
-		let token = this.securityService.currentToken();
-		let _obj: any = { ...obj };
-		_obj.token = token;
-
-		console.log(_obj);
-
+		// let token = this.securityService.currentToken();
+		// let _obj: any = { ...obj };
+		// _obj.token = token;
+		// console.log(_obj);
 
 		const url = Api.getUrl().locationApi;
 		let observable: Observable<any>;
 
 		if (environment.apiEnabled) {
-			observable = this.http.post<any>(url, _obj);
+			observable = this.http.post<any>(url, obj);
 		} else {
 			// needed for locally testing
 			observable = this.http.get<any>(url);

@@ -22,7 +22,6 @@ export class HttpXsrfInterceptor implements HttpInterceptor {
 
 	intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 		req = this.addHeaders(req);
-
 		return next.handle(req)
 			.pipe(
 				tap(response => {
@@ -34,11 +33,12 @@ export class HttpXsrfInterceptor implements HttpInterceptor {
 					}
 				}),
 				catchError((error: HttpErrorResponse) => {
-					if (error.status === 0) {
-						this.notificationService.error('Network connection was lost');
-					} else if (error.status === 401) {
-						this.securityService.navigateToLogoutPage();
-					}
+					// [mck] make sure the redirect works (check current page if needed to redirect)
+					// if (error.status === 0) {
+					// 	this.notificationService.error('Network connection was lost');
+					// } else if (error.status === 401) {
+					// 	this.securityService.navigateToLogoutPage();
+					// }
 					return throwError(() => error);
 				})
 			);

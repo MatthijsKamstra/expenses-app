@@ -54,6 +54,9 @@ export class SecurityService {
 		);
 	}
 
+	/**
+	 * on place to rule them all
+	 */
 	navigateToLogoutPage() {
 		this.router.navigate([Redirects.REDIRECT_LOGOUT]);
 	}
