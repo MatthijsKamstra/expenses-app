@@ -5,6 +5,7 @@ import { SecurityService } from 'src/app/services/security.service';
 import { TestService } from 'src/app/services/test.service';
 import { VersionService } from 'src/app/services/version.service';
 import { Redirects } from 'src/app/shared/constants/redirects';
+import { environment } from 'src/environments/environment';
 
 @Component({
 	selector: 'app-home-page',
@@ -14,7 +15,10 @@ import { Redirects } from 'src/app/shared/constants/redirects';
 export class HomePageComponent implements OnInit {
 
 	version!: string;
-	isLogedInn: boolean = false;;
+	isLogedInn: boolean = false;
+	isProduction: boolean = environment.production;
+	isApiEnabled: boolean = environment.apiEnabled;
+	envText: string = environment.text;
 
 	constructor(
 		private router: Router,

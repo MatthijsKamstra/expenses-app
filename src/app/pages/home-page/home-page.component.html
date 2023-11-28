@@ -16,6 +16,20 @@
 				<p>I have nothing</p>
 			</div>
 
+			<div>
+				<p>{{this.envText}}</p>
+				<div class="form-check form-switch">
+					<input class="form-check-input" type="checkbox" role="switch" id="switchIsProduction"
+						[checked]="this.isProduction">
+					<label class="form-check-label" for="switchIsProduction">Production ({{this.isProduction}})</label>
+				</div>
+				<div class="form-check form-switch">
+					<input class="form-check-input" type="checkbox" role="switch" id="switchIsApiEnabled"
+						[checked]="this.isApiEnabled">
+					<label class="form-check-label" for="switchIsApiEnabled">ApiEnabled ({{this.isApiEnabled}})</label>
+				</div>
+			</div>
+
 		</div>
 	</div>
 </section>

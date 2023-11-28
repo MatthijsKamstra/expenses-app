@@ -48,6 +48,8 @@ import { LocationAddPageComponent } from './pages/location-add-page/location-add
 import { LocationsPageComponent } from './pages/locations-page/locations-page.component';
 import { DebugDirective } from "./shared/directives/debug.directive";
 import { TripsPageComponent } from './pages/trips-page/trips-page.component';
+import { TripsCreatePageComponent } from './pages/trips-create-page/trips-create-page.component';
+import { OverviewPageComponent } from './pages/overview-page/overview-page.component';
 
 @NgModule({
 	declarations: [
@@ -89,6 +91,8 @@ import { TripsPageComponent } from './pages/trips-page/trips-page.component';
 		LocationsPageComponent,
 		LocationAddPageComponent,
   TripsPageComponent,
+  TripsCreatePageComponent,
+  OverviewPageComponent,
 	],
 	imports: [
 		BrowserModule,

@@ -137,15 +137,15 @@ export class DashboardPageComponent implements OnInit {
 
 	onSubmitHandler() {
 		let obj: ILocation = {
-			date: new Date(),
+			date: new Date().toISOString(),
 			latitude: this.latitude,
 			longitude: this.longitude,
 		}
-		console.log(obj);
+		// console.log(obj);
 
 		this.locationsService.setLocation(obj).subscribe({
 			next: (data: any) => {
-				console.log(data);
+				// console.log(data);
 				this.router.navigate([Redirects.REDIRECT_AFTER_SUBMIT_TRIP]);
 			},
 			error: (error: HttpErrorResponse) => {
