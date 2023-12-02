@@ -1,1 +1,119 @@
-<p>trips-create-page works!</p>
+<app-header title="{{this.title}}"></app-header>
+
+<section class="container">
+
+
+	<p>trips-create-page works!</p>
+
+
+
+	<h2>Create declaration</h2>
+	<p>Set date, from and to</p>
+
+	<form [formGroup]="profileForm" (change)="onFormChange()" (ngSubmit)="onFormSubmit()">
+		<div class="row g-3">
+			<div class="col">
+				<label class="form-label" for="locationDate">
+					Date
+					<app-info text="The date of the trip"></app-info>
+				</label>
+				<input type="date" class="form-control" id="locationDate" name="locationDate"
+					formControlName="locationDate" aria-label="Date" [value]="convertTodayForForm()">
+			</div>
+			<div class="col-2">
+				<label class="form-label" for="locationFrom">
+					Van
+					<app-info text="Travelling from location"></app-info>
+				</label>
+				<select class="form-select" id="locationFrom" name="locationFrom" formControlName="locationFrom"
+					aria-label="Van">
+					<option value="" selected>Van</option>
+					<option *ngFor="let loc of locations" [ngValue]="loc.id">
+						{{loc.type}} ({{loc.street}} {{loc.number}}, {{loc.city}})
+					</option>
+				</select>
+			</div>
+			<div class="col-2">
+				<label class="form-label" for="locationTo">
+					Naar
+					<app-info text="Travelling to location"></app-info>
+				</label>
+				<select class="form-select" id="locationTo" name="locationTo" formControlName="locationTo"
+					aria-label="Naar">
+					<option value="" selected>Naar</option>
+					<option *ngFor="let loc of locations" [ngValue]="loc.id">
+						{{loc.type}} ({{loc.street}} {{loc.number}}, {{loc.city}})
+					</option>
+				</select>
+			</div>
+			<div class="col">
+				<label class="form-label" for="locationTotalDistance">
+					km
+					<app-info text="Total kilometers"></app-info>
+				</label>
+				<input type="number" class="form-control" id="locationTotalDistance" name="locationTotalDistance"
+					formControlName="locationTotalDistance" placeholder="km" aria-label="km"
+					[value]="calculateDistance()">
+			</div>
+
+			<!--
+			<div class="col">
+				<label class="form-label" for="locationReturnValue">km&nbsp;Vergoeding</label>
+				<div class="input-group mb-3">
+					<span class="input-group-text" id="basic-addon1">€</span>
+					<input type="text" class="form-control" id="locationReturnValue" name="locationReturnValue"
+						formControlName="locationReturnValue" aria-label="Vergoeding" [value]="onTaxFreeValue()">
+				</div>
+			</div>
+			-->
+
+			<div class="col-2">
+				<label class="form-label" for="locationTotal">
+					Total
+					<app-info text="Total km * {{getTaxfreeCompensation(currentDate)}}"></app-info>
+				</label>
+				<div class="input-group mb-3">
+					<span class="input-group-text" id="basic-addon1">€</span>
+					<input type="text" class="form-control" id="locationTotal" name="locationTotal"
+						formControlName="locationTotal" aria-label="Vergoeding" step="1.01">
+				</div>
+			</div>
+
+
+			<div class="col-auto">
+				<label class="form-label">
+					Maps
+					<app-info text="Search via Google-Maps or ANWB-website"></app-info>
+				</label>
+				<div class="hstack gap-1">
+					<button type="button" class="btn btn-dark" (click)="onGoogleMapHandler()"
+						[disabled]="isMapDisabled()">
+						<app-icons icon="googlemap"></app-icons>
+					</button>
+					<button type="button" class="btn btn-dark" (click)="onAnwbMapHandler()"
+						[disabled]="isMapDisabled()">
+						<app-icons icon="map"></app-icons>
+					</button>
+				</div>
+			</div>
+
+			<div class="col-1">
+				<label class="form-label">
+					<!-- Reve -->
+					<app-info text="Reverse from and to"></app-info>
+				</label>
+				<button type="button" class="form-control btn btn-dark" (click)="onReverse()"
+					[disabled]="isMapDisabled()">
+					<app-icons icon="reverse"></app-icons>
+				</button>
+			</div>
+
+		</div>
+
+		<!-- <div class="alert alert-secondary fw-lighter" role="alert" [innerHTML]="storyMode()"> </div> -->
+
+		<button type="submit" class="btn btn-dark" [disabled]="profileForm.invalid">Submit Declaration</button>
+
+	</form>
+
+</section>

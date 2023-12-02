@@ -24,6 +24,7 @@ import { NavComponent } from './components/nav/nav.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 // elements
 import { IconsComponent } from './elements/icons/icons.component';
+import { InfoComponent } from './elements/info/info.component';
 import { IsLocalComponent } from './elements/is-local/is-local.component';
 import { ProfileDropdownComponent } from './elements/profile-dropdown/profile-dropdown.component';
 import { ThrobberComponent } from './elements/throbber/throbber.component';
@@ -46,10 +47,10 @@ import { PageContentComponent } from './layout/page-content/page-content.compone
 // directives
 import { LocationAddPageComponent } from './pages/location-add-page/location-add-page.component';
 import { LocationsPageComponent } from './pages/locations-page/locations-page.component';
-import { DebugDirective } from "./shared/directives/debug.directive";
-import { TripsPageComponent } from './pages/trips-page/trips-page.component';
-import { TripsCreatePageComponent } from './pages/trips-create-page/trips-create-page.component';
 import { OverviewPageComponent } from './pages/overview-page/overview-page.component';
+import { TripsCreatePageComponent } from './pages/trips-create-page/trips-create-page.component';
+import { TripsPageComponent } from './pages/trips-page/trips-page.component';
+import { DebugDirective } from "./shared/directives/debug.directive";
 
 @NgModule({
 	declarations: [
@@ -71,6 +72,7 @@ import { OverviewPageComponent } from './pages/overview-page/overview-page.compo
 		HomePageComponent,
 		HomePageComponent,
 		IconsComponent,
+		InfoComponent,
 		IsLocalComponent,
 		LoginComponent,
 		LoginPageComponent,
@@ -90,9 +92,9 @@ import { OverviewPageComponent } from './pages/overview-page/overview-page.compo
 		UsersPageComponent,
 		LocationsPageComponent,
 		LocationAddPageComponent,
-  TripsPageComponent,
-  TripsCreatePageComponent,
-  OverviewPageComponent,
+		TripsPageComponent,
+		TripsCreatePageComponent,
+		OverviewPageComponent,
 	],
 	imports: [
 		BrowserModule,
